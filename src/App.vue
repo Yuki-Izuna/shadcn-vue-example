@@ -17,7 +17,7 @@ const isPrintRoute = computed(() => {
   <template v-if="!isPrintRoute">
     <SidebarProvider>
       <AppSidebar />
-      <SidebarInset>
+      <SidebarInset class="flex flex-col h-full">
         <header
           class="flex h-10 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12 bg-input"
         >
@@ -29,7 +29,7 @@ const isPrintRoute = computed(() => {
             />
           </div>
         </header>
-        <div class="flex flex-1 flex-col gap-4 p-4">
+        <div class="flex flex-1 flex-col gap-4 px-4 py-2 overflow-hidden">
           <router-view />
         </div>
       </SidebarInset>
