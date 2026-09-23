@@ -73,6 +73,10 @@ const data = {
           title: 'Example',
           url: 'example',
         },
+        {
+          title: 'Batch',
+          url: 'batch',
+        },
       ],
     },
     {

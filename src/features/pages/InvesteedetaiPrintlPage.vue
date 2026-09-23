@@ -13,6 +13,7 @@ import type {
 } from '@/features/types/Investee'
 import Button from '@/components/ui/button/Button.vue'
 import { Printer, PrinterCheck } from '@lucide/vue'
+import { Label } from 'reka-ui'
 
 const company = ref<InvesteeCompanyInfo | null>(null)
 const basicInfo = ref<InvesteeBasicInfoData | null>(null)
@@ -104,14 +105,17 @@ function handlePrint() {
       印刷する
     </Button>
   </div>
-  <div
+  <!-- <div
     class="w-[210mm] mx-auto bg-white font-sans text-xs leading-relaxed text-black border border-gray-300 p-6 shadow-lg my-5 print:border-0 print:w-full print:p-[10mm] print:m-0 print:shadow-none"
+  > -->
+  <div
+    class="w-[210mm] mx-auto bg-white font-sans text-xs leading-relaxed text-black px-6 print:border-0 print:w-full print:p-[10mm] print:m-0 print:shadow-none"
   >
     <!-- ①出資先情報 -->
-    <section v-if="company" class="mb-8 print:break-inside-avoid">
-      <h2 class="text-[11pt] font-bold mb-4 border-b border-gray-400 pb-2">
-        ①出資先情報
-      </h2>
+    <section v-if="company" class="mb-4 print:break-inside-avoid">
+      <div class="text-[14pt] font-bold mb-1 border-b border-gray-400 px-">
+        出資先情報
+      </div>
       <table class="w-full border-collapse text-[10pt]">
         <tbody>
           <tr
@@ -145,10 +149,10 @@ function handlePrint() {
     </section>
 
     <!-- ②出資先基本情報 -->
-    <section v-if="basicInfo" class="mb-8 print:break-inside-avoid">
-      <h2 class="text-[11pt] font-bold mb-4 border-b border-gray-400 pb-2">
-        ②出資先基本情報
-      </h2>
+    <section v-if="basicInfo" class="mb-4 print:break-inside-avoid">
+      <div class="text-[14pt] font-bold mb-1 border-b border-gray-400 px-">
+        出資先基本情報
+      </div>
       <div class="grid grid-cols-2 gap-4">
         <!-- 左: 保有株式情報 -->
         <div class="border border-gray-400">
@@ -208,9 +212,9 @@ function handlePrint() {
 
     <!-- ③財務情報 -->
     <section v-if="financialData" class="mb-8 print:break-inside-avoid">
-      <h2 class="text-[11pt] font-bold mb-4 border-b border-gray-400 pb-2">
-        ③財務情報
-      </h2>
+      <div class="text-[14pt] font-bold mb-1 border-b border-gray-400 px-">
+        財務情報
+      </div>
       <div class="overflow-x-auto">
         <table class="w-full border-collapse text-[10pt]">
           <thead class="bg-gray-100 border-t border-b border-gray-400">
@@ -235,7 +239,7 @@ function handlePrint() {
                 class="w-[22%] bg-gray-50 border-r border-gray-400 px-2 py-1.5 font-bold align-top whitespace-nowrap overflow-hidden text-ellipsis border-b border-gray-300"
               >
                 {{ row.label }}
-                <span v-if="row.unit" class="text-[9pt] text-gray-600 block">
+                <span v-if="row.unit" class="text-[9pt] text-gray-600">
                   ({{ row.unit }})
                 </span>
               </td>
