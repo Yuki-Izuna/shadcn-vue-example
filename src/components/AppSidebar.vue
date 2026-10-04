@@ -77,6 +77,10 @@ const data = {
           title: 'Batch',
           url: 'batch',
         },
+        {
+          title: 'Exports',
+          url: 'export',
+        },
       ],
     },
     {
